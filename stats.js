@@ -51,6 +51,11 @@ function flushMetrics() {
     for (key in metrics.timers) {
       metrics.timers[key] = [];
     }
+
+    // Clear the gauges
+    for (key in metrics.gauges) {
+      delete metrics.gauges[key];
+    }
   });
 
   // Flush metrics to each backend.
